@@ -24,7 +24,7 @@ const App = () => {
         <InputLabel>Idade</InputLabel>
         <Input placeholder="Idade" />
 
-        <button>Cadastrar</button>
+        <Button>Cadastrar</Button>
       </ContainerItens>
     </Container>
   );
