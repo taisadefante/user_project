@@ -84,4 +84,12 @@ export const Button = styled.button`
   line-height: 28px;
   color: white;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
 `;
