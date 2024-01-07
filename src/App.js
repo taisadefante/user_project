@@ -1,4 +1,5 @@
 import React from "react";
+import Imagem1 from "./assets/1.png";
 import {
   Container,
   ContainerItens,
@@ -13,7 +14,7 @@ import {
 const App = () => {
   return (
     <Container>
-      <Image />
+      <Image alt="logo" src={Imagem1} />
       <ContainerItens>
         <H1>Olá!</H1>
 
