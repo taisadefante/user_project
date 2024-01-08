@@ -31,6 +31,11 @@ const App = () => {
     ]);
   }
 
+  function deleteUser(userId) {
+    const newUsers = users.filter((user) => user.id !== userId);
+    setUsers(newUsers);
+  }
+
   //[{ id: Math.random(), name: "Tais", age: 44 }]
 
   return (
@@ -51,8 +56,8 @@ const App = () => {
           {users.map((user) => (
             <User key={user.id}>
               <p> {user.name} </p> <p> {user.age}</p>
-              <button>
-                <img src={Trash} />
+              <button onClick={() => deleteUser(user.id)}>
+                <img src={Trash} alt="lixeira" />
               </button>
             </User>
           ))}
