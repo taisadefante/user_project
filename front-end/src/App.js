@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Imagem1 from "./assets/1.png";
 import Trash from "./assets/lixeira.png";
+import axios from "axios";
 import {
   Container,
   ContainerItens,
@@ -14,21 +15,19 @@ import {
 
 //JSX
 const App = () => {
+  //criando novo usuario
   const [users, setUsers] = useState([]);
 
   const inputName = useRef();
   const inputAge = useRef();
 
-  function addNewUser() {
-    //spred operator
-    setUsers([
-      ...users,
-      {
-        id: Math.random(),
-        name: inputName.current.value,
-        age: inputAge.current.value,
-      },
-    ]);
+  async function addNewUser() {
+    const { data: newUser } = await axios.post("http://localhost:3001/users", {
+      name: inputName.current.value,
+      age: inputAge.current.value,
+    });
+
+    setUsers([...users, newUser]);
   }
 
   function deleteUser(userId) {
