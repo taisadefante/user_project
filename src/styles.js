@@ -23,7 +23,7 @@ export const ContainerItens = styled.div`
     rgba(255, 255, 255, 0.15) 100%
   );
   border-radius: 61px 61px 0px 0px;
-  padding: 50px 36px;
+  padding: 30px 36px;
   display: flex;
   flex-direction: column;
 `;
@@ -35,7 +35,7 @@ export const H1 = styled.h1`
   line-height: 40px;
   text-align: center;
   color: white;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 `;
 
 export const InputLabel = styled.p`

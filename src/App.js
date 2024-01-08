@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Imagem1 from "./assets/1.png";
 import Trash from "./assets/lixeira.png";
 import {
@@ -15,20 +15,20 @@ import {
 //JSX
 const App = () => {
   const [users, setUsers] = useState([]);
-  const [name, setName] = useState();
-  const [age, setAge] = useState();
+
+  const inputName = useRef();
+  const inputAge = useRef();
 
   function addNewUser() {
-    //user.push()
-    setUsers([{ id: Math.random(), name, age }]);
-  }
-
-  function ChangeInputName(event) {
-    setName(event.target.value);
-  }
-
-  function ChangeInputAge(event) {
-    setAge(event.target.value);
+    //spred operator
+    setUsers([
+      ...users,
+      {
+        id: Math.random(),
+        name: inputName.current.value,
+        age: inputAge.current.value,
+      },
+    ]);
   }
 
   //[{ id: Math.random(), name: "Tais", age: 44 }]
@@ -40,10 +40,10 @@ const App = () => {
         <H1>Olá!</H1>
 
         <InputLabel>Nome</InputLabel>
-        <Input onChange={ChangeInputName} placeholder="Nome" />
+        <Input ref={inputName} placeholder="Nome" />
 
         <InputLabel>Idade</InputLabel>
-        <Input onChange={ChangeInputAge} placeholder="Idade" />
+        <Input ref={inputAge} placeholder="Idade" />
 
         <Button onClick={addNewUser}> Cadastrar</Button>
 
