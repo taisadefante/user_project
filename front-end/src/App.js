@@ -20,6 +20,15 @@ const App = () => {
   const inputName = useRef();
   const inputAge = useRef();
 
+  useEffect(() => {
+    async function fetchUsers() {
+      const { data: newUsers } = await axios.get("http://localhost:3001/users");
+
+      setUsers(newUsers);
+    }
+    fetchUsers();
+  }, []);
+
   async function addNewUser() {
     const { data: newUser } = await axios.post("http://localhost:3001/users", {
       name: inputName.current.value,
@@ -33,16 +42,8 @@ const App = () => {
   // a minha aplicação inicia (A pagina carregou, useEffect é chamado)
   //quando um estado que está no array de dependencia do useeffect e alterado
 
-  useEffect(() => {
-    async function fetchUsers() {
-      const { data: newUsers } = await axios.get("http://localhost:3001/users");
-
-      setUsers(newUsers);
-    }
-    fetchUsers();
-  }, []);
-
-  function deleteUser(userId) {
+  async function deleteUser(userId) {
+    await axios.delete(`http://localhost:3000/users/${userId}`);
     const newUsers = users.filter((user) => user.id !== userId);
     setUsers(newUsers);
   }
