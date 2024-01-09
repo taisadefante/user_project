@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Imagem1 from "./assets/1.png";
 import Trash from "./assets/lixeira.png";
 import axios from "axios";
@@ -17,7 +17,6 @@ import {
 const App = () => {
   //criando novo usuario
   const [users, setUsers] = useState([]);
-
   const inputName = useRef();
   const inputAge = useRef();
 
@@ -29,6 +28,19 @@ const App = () => {
 
     setUsers([...users, newUser]);
   }
+
+  // react hook => useEffect ( efeito colateral)
+  // a minha aplicação inicia (A pagina carregou, useEffect é chamado)
+  //quando um estado que está no array de dependencia do useeffect e alterado
+
+  useEffect(() => {
+    async function fetchUsers() {
+      const { data: newUsers } = await axios.get("http://localhost:3001/users");
+
+      setUsers(newUsers);
+    }
+    fetchUsers();
+  }, []);
 
   function deleteUser(userId) {
     const newUsers = users.filter((user) => user.id !== userId);
