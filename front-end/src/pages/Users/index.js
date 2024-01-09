@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import Imagem1 from "./assets/1.png";
-import Trash from "./assets/lixeira.png";
+
 import axios from "axios";
+
+import Imagem1 from "../../assets/1.png";
+import Trash from "../../assets/lixeira.png";
+
 import {
   Container,
   ContainerItens,
@@ -26,6 +29,7 @@ const App = () => {
 
       setUsers(newUsers);
     }
+
     fetchUsers();
   }, []);
 
