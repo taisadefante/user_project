@@ -1,27 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
 import Imagem1 from "../../assets/1.png";
 import Trash from "../../assets/lixeira.png";
 
-import {
-  Container,
-  ContainerItens,
-  Image,
-  H1,
-  InputLabel,
-  Input,
-  Button,
-  User,
-} from "./styles";
+import { Container, ContainerItens, Image, H1, Button, User } from "./styles";
 
 //JSX
-const App = () => {
-  //criando novo usuario
+function Users() {
   const [users, setUsers] = useState([]);
-  const inputName = useRef();
-  const inputAge = useRef();
 
   useEffect(() => {
     async function fetchUsers() {
@@ -33,54 +21,35 @@ const App = () => {
     fetchUsers();
   }, []);
 
-  async function addNewUser() {
-    const { data: newUser } = await axios.post("http://localhost:3001/users", {
-      name: inputName.current.value,
-      age: inputAge.current.value,
-    });
-
-    setUsers([...users, newUser]);
-  }
-
-  // react hook => useEffect ( efeito colateral)
-  // a minha aplicação inicia (A pagina carregou, useEffect é chamado)
-  //quando um estado que está no array de dependencia do useeffect e alterado
-
   async function deleteUser(userId) {
-    await axios.delete(`http://localhost:3000/users/${userId}`);
+    await axios.delete(`http://localhost:3001/users/${userId}`);
+
     const newUsers = users.filter((user) => user.id !== userId);
+
     setUsers(newUsers);
   }
 
-  //[{ id: Math.random(), name: "Tais", age: 44 }]
-
   return (
     <Container>
-      <Image alt="logo" src={Imagem1} />
-      <ContainerItens>
-        <H1>Olá!</H1>
-
-        <InputLabel>Nome</InputLabel>
-        <Input ref={inputName} placeholder="Nome" />
-
-        <InputLabel>Idade</InputLabel>
-        <Input ref={inputAge} placeholder="Idade" />
-
-        <Button onClick={addNewUser}> Cadastrar</Button>
+      <Image alt="logo-imagem" src={Imagem1} />
+      <ContainerItens isBlur={true}>
+        <H1>Usuários</H1>
 
         <ul>
           {users.map((user) => (
             <User key={user.id}>
-              <p> {user.name} </p> <p> {user.age}</p>
+              <p>{user.name}</p> <p>{user.age}</p>
               <button onClick={() => deleteUser(user.id)}>
-                <img src={Trash} alt="lixeira" />
+                <img src={Trash} alt="lata-de-lixo" />
               </button>
             </User>
           ))}
         </ul>
+
+        <Button to="/"> Voltar </Button>
       </ContainerItens>
     </Container>
   );
-};
+}
 
-export default App;
+export default Users;

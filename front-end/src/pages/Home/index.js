@@ -15,7 +15,7 @@ import {
 } from "./styles";
 
 //JSX
-const App = () => {
+function App() {
   //criando novo usuario
   const [users, setUsers] = useState([]);
   const inputName = useRef();
@@ -42,10 +42,13 @@ const App = () => {
         <InputLabel>Idade</InputLabel>
         <Input ref={inputAge} placeholder="Idade" />
 
-        <Button onClick={addNewUser}> Cadastrar</Button>
+        <Button to="/usuarios" onClick={addNewUser}>
+          {" "}
+          Cadastrar
+        </Button>
       </ContainerItens>
     </Container>
   );
-};
+}
 
 export default App;

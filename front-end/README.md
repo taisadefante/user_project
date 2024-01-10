@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<h2>🚀 Nome do Projeto:</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3>Primeiro Projeto React - Users - Front-End - DevClub.</h3>
+<h3>First Project React - Users - Front-End - DevClub.</h3>
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+https://user-images.githubusercontent.com/98890774/172529362-ea9db435-1592-4d6e-8811-15758c676731.mp4
 
-### `npm start`
+<h2>📝 Descrição do Projeto:</h2>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h3>Projeto Front-end de cadastro de usuários (users) utilizando Javascript e React. Iniciando os estudos de Front-end com o React.</h3>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3>Com essa simples interface, é possível cadastrar o Nome do Usuário e a sua Idade clicando no Botão Cadastrar, na próxima página, pode-se consultar os Usuários cadastrados e Deletá-los.</h3>
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2>🖥️ O que foi utilizado:</h2>
 
-### `npm run build`
+<img align="left" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img align="left" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img align="left" src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
+<br>
+<br>
 
-### `npm run eject`
+<h2>🧰 Ajustes e melhorias:</h2>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h4>Front-end do projeto foi finalizado e conectado com o Back-End. As próximas atualizações serão voltadas para seguintes tarefas:</h4>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [x] Criação do Javascript.
+- [x] Criação do Back-end utilizando Node.
+- [x] Criação do front-end utilizando React.
+- [ ] Atualização da Interface.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<h2>💻 Pré-requisitos:</h2>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<h4>Apenas ter um computador ligado à Internet e uma conta no GitHub para visualizar.</h4>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+<h2>🤝 Colaboradores</h2>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<h4>Agradeço às seguintes pessoas que contribuíram para este projeto:</h4>
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/olivercaputo">
+        <img src="https://avatars.githubusercontent.com/u/98890774?v=4" width="100px;" alt="Foto do Oliver Caputo no GitHub"/><br>
+        <sub>
+          <b>Oliver Caputo</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.github.com/rodolfomori" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/47903440?v=4" width="100px;" alt="Foto do Rodolfo Mori no GitHub"/><br>
+        <sub>
+          <b>Rodolfo Mori</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
