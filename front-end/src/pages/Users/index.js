@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import Imagem1 from "../../assets/1.png";
@@ -10,6 +10,8 @@ import { Container, ContainerItens, Image, H1, Button, User } from "./styles";
 //JSX
 function Users() {
   const [users, setUsers] = useState([]);
+
+  const history = useHistory();
 
   useEffect(() => {
     async function fetchUsers() {
@@ -29,6 +31,10 @@ function Users() {
     setUsers(newUsers);
   }
 
+  function goBackPage() {
+    history.push("/");
+  }
+
   return (
     <Container>
       <Image alt="logo-imagem" src={Imagem1} />
@@ -46,7 +52,7 @@ function Users() {
           ))}
         </ul>
 
-        <Button to="/"> Voltar </Button>
+        <Button onClick={goBackPage}> Voltar </Button>
       </ContainerItens>
     </Container>
   );
