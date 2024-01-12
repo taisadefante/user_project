@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+
 import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
 
 import Imagem1 from "../../assets/1.png";
 import Trash from "../../assets/lixeira.png";
 
-import { Container, ContainerItens, Image, H1, Button, User } from "./styles";
+import H1 from "../../componentes/Title";
+import ContainerItens from "../../componentes/Title";
+import Button from "../../componentes/Buton";
+
+import { Container, Image, User } from "./styles";
 
 //JSX
 function Users() {
   const [users, setUsers] = useState([]);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUsers() {
@@ -32,7 +38,7 @@ function Users() {
   }
 
   function goBackPage() {
-    history.push("/");
+    navigate("/");
   }
 
   return (
@@ -52,7 +58,9 @@ function Users() {
           ))}
         </ul>
 
-        <Button onClick={goBackPage}> Voltar </Button>
+        <Button isBack={true} onClick={goBackPage}>
+          Voltar
+        </Button>
       </ContainerItens>
     </Container>
   );

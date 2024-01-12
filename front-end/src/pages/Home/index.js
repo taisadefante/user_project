@@ -1,26 +1,24 @@
 import React, { useState, useRef } from "react";
 
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
 import Imagem1 from "../../assets/1.png";
 
-import {
-  Container,
-  ContainerItens,
-  Image,
-  H1,
-  InputLabel,
-  Input,
-  Button,
-} from "./styles";
+import H1 from "../../componentes/Title";
+
+import ContainerItens from "../../componentes/ContainerItens";
+
+import Button from "../../componentes/Buton";
+
+import { Container, Image, InputLabel, Input } from "./styles";
 
 //JSX
 function App() {
   //criando novo usuario
   const [users, setUsers] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const inputName = useRef();
   const inputAge = useRef();
@@ -33,7 +31,7 @@ function App() {
 
     setUsers([...users, newUser]);
 
-    history.push("/usuarios");
+    navigate("/usuarios");
   }
 
   return (
