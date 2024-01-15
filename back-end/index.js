@@ -1,78 +1,78 @@
-const express = require("express");
-const uuid = require("uuid");
-const cors = require("cors");
+import express from "express";
+import { v4 } from "uuid";
+import cors from "cors";
 
 const port = 3001;
-
 const app = express();
-
 app.use(express.json());
-
 app.use(cors());
+
+/* 
+        comando executor do servidor "npm run (nome do script)"        
+
+        - Query params => MediaQueryListEvent.com/users?nome=anderson&age=27  // FILTROS
+        - Route params => /users/2   // BUSCAR, DELETAR OU ATUALIZAR ALOGO ESPECÍFICO
+        - Request Body => { "name:"Anderson", "age":}
+
+        - GET          => Buscar informações no bakc-end
+        - POST         => Criar informações no back-end
+        - PUT / PATCH  => Alterar/Atualizar informações no bakc-end
+        - DELETE       => Deletar informações no back-end
+
+        - Middleware => INTERCEPTADOR => Tem o poder de parar ou alterar dados de requisição
+ */
 
 const users = [];
 
-//middleware
-const checkUserId = (req, res, next) => {
-  const { id } = req.params;
+const checkUserId = (request, response, next) => {
+  const { id } = request.params;
 
   const index = users.findIndex((user) => user.id === id);
 
   if (index < 0) {
-    return res.status(404).json({ error: "User not found." });
+    return response.status(404).json({ message: "user not found" });
   }
 
-  req.userIndex = index;
-  req.userId = id;
+  request.userIndex = index;
+  request.userId = id;
 
   next();
 };
 
-//exibir tudo
-app.get("/users", (req, res) => {
-  return res.json({ users });
+app.get("/users", (request, response) => {
+  return response.json(users);
 });
 
-// cadastrar
-app.post("/users", (req, res) => {
-  const { name, age } = req.body;
+app.post("/users", (request, response) => {
+  const { name, age } = request.body;
 
-  const user = { id: uuid.v4(), name, age };
+  const user = { id: v4(), name, age };
 
   users.push(user);
 
-  return res.status(201).json(user);
+  return response.status(201).json(user);
 });
 
-//alterar
-app.put("/users/:id", checkUserId, (req, res) => {
-  const { name, age } = req.body;
-  const index = req.userIndex;
-  const id = req.userId;
+app.put("/users/:id", checkUserId, (request, response) => {
+  const { name, age } = request.body;
+  const index = request.userIndex;
+  const id = request.userId;
 
-  const updateUser = { id, name, age };
+  const updatedUser = { id, name, age };
 
-  // Verificar se o nome foi fornecido
-  if (name === undefined) {
-    return res
-      .status(400)
-      .json({ error: "Name is required for updating user." });
-  }
+  users[index] = updatedUser;
 
-  users[index] = updateUser;
-
-  return res.json(updateUser);
+  return response.json(updatedUser);
 });
 
-//deletar
-app.delete("/users/:id", checkUserId, (req, res) => {
-  const index = req.userIndex;
+app.delete("/users/:id", checkUserId, (request, response) => {
+  const index = request.userIndex;
 
   users.splice(index, 1);
 
-  return res.status(204).json(users);
+  return response.status(204).json(users);
 });
 
 app.listen(port, () => {
-  console.log(`App rodando na porta ${port}.`);
+  console.log(`🌎 Server started on port ${port} 🚀`);
 });

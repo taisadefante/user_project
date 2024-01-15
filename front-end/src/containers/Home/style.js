@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import background from "../../assets/11.png";
+import Background from "../../assets/background1.svg";
 
 export const Container = styled.div`
-  background: url("${background}");
+  min-height: 100vh;
+  background: url("${Background}");
   background-size: cover;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,34 +14,36 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   margin-top: 30px;
-  width: 350px;
 `;
 
 export const InputLabel = styled.p`
-  letter-spacing: -0.408px;
-  font-style: normal;
-  font-weight: bold;
+  color: #eee;
   font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
   line-height: 22px;
-  color: white;
+  letter-spacing: -0.408px;
+
   margin-left: 25px;
 `;
 
 export const Input = styled.input`
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
   width: 342px;
   height: 58px;
+  border-radius: 14px;
+  padding-left: 25px;
+  margin-bottom: 34px;
+
   border: none;
   outline: none;
-  padding-left: 25px;
 
-  color: white;
-  font-style: normal;
-  font-weight: normal;
+  color: #fff;
   font-size: 20px;
-  line-height: 28px;
-
-  margin-bottom: 34px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;
